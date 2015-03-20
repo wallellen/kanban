@@ -1,8 +1,13 @@
 Kanban.Views.UsersIndex = Backbone.View.extend({
   template: JST['users/index'],
 
+  events: {
+    "submit form.add_user": "addMemberToBoard"
+  },
+
   initialize: function () {
     var that = this;
+    this.board = this.options.board;
   },
 
   render: function () {
@@ -15,6 +20,26 @@ Kanban.Views.UsersIndex = Backbone.View.extend({
     that.$el.html(renderedContent);
 
     return that;
+  },
+
+  addMemberToBoard: function (event) {
+    var that = this;
+    event.preventDefault();
+    var $form = $(event.target);
+    var attrs = $form.serializeJSON();
+    attrs['board_id'] = that.board.id;
+    var attrs = {
+      board_id: that.board.id,
+      user_email: $form.find('.user_email').val()
+    }
+
+    var boardMember = new Kanban.Models.BoardMember();
+
+    boardMember.save(attrs, {
+      success: function (data) {
+        alert('success');
+      }
+    });
   }
 
 });

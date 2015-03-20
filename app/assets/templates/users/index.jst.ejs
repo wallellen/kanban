@@ -7,13 +7,15 @@
 		<li class="user"
 				data-user-id="<%= user.id %>">
 			<img class="avatar" src="<%= user.escape("gravatar_url") %>" />
+			<span><%= user.get('email') %></span>
 		</li>
 	<% }); %>
 </ul>
 
 <form class="add_user">
 	<input type="text"
-         name="user_id"
+		 class="user_email"
+         name="user_email"
          placeholder="Add a member ..." />
 	<input type="submit" value="Add Member" />
 </form>

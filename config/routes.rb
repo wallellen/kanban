@@ -32,5 +32,7 @@ Kanban::Application.routes.draw do
     end
 
     resources :card_comments, only: [:index, :create, :destroy]
+
+    resources :board_members, only: [:index, :create, :destroy]
   end
 end

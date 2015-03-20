@@ -125,7 +125,8 @@ Kanban.Views.BoardShow = Backbone.View.extend({
 
     // include members in sidebar
     var usersIndex = new Kanban.Views.UsersIndex({
-      collection: users
+      collection: users,
+      board: board
     });
     that.$("section.board-sidebar").html(usersIndex.render().el);
 
