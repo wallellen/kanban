@@ -37,7 +37,8 @@ Kanban.Views.UsersIndex = Backbone.View.extend({
 
     boardMember.save(attrs, {
       success: function (data) {
-        alert('success');
+        that.collection.add(data.get('user'));
+        that.render();
       }
     });
   }
