@@ -18,4 +18,9 @@ class Board < ActiveRecord::Base
   has_many :boards_members, class_name: "BoardMember"
   has_many :members, through: :boards_members
 
+  def is_admin(user)
+    admin = self.boards_members.find { |m| m.admin? and m.member_id == user.id }
+    !admin.nil?
+  end
+
 end

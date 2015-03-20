@@ -5,7 +5,7 @@ child assignee: :assignee do
 	attributes :id, :username, :email, :full_name, :bio, :gravatar_url
 end
 
-child comments: :comments do
+child @comments => :comments do
 	attributes :id, :card_id, :commenter_id, :content, :position, :created_at, :created_at_timestamp
 
 	child :commenter do

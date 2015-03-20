@@ -8,15 +8,21 @@ module Api
 
     def show
       @card = current_user.cards.find(params[:id])
+      if @card.assignee_id == current_user.id or @card.board.is_admin(current_user) then
+        @comments = @card.comments
+      else
+        @comments = @card.comments.select { |c| c.commenter_id == current_user.id }
+      end
     end
 
     def create
-    	card = Card.new(params[:card])
-    	if card.save
+      card = Card.new(params[:card])
+      card.assignee = current_user
+      if card.save
     		render json: card, status: :ok
-    	else
+      else
     		render nothing: true, status: :unprocessable_entity
-    	end
+      end
     end
 
     def update
