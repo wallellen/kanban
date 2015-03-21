@@ -14,6 +14,9 @@ module Api
 
     def update
       @comment = CardComment.find(params[:id])
+      if @comment.commenter_id != current_user.id and !@comment.card.board.is_admin(current_user) then
+        return render nothing: true, status: :unprocessable_entity
+      end
       @comment.content = params[:content]
       if @comment.save
         render json: @comment, status: :ok
