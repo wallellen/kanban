@@ -7,7 +7,7 @@
 		<li class="user"
 				data-user-id="<%= user.id %>">
 			<img class="avatar" src="<%= user.escape("gravatar_url") %>" />
-			<span><%= user.get('email') %></span>
+			<span><%= user.get('full_name') %></span>
 		</li>
 	<% }); %>
 </ul>

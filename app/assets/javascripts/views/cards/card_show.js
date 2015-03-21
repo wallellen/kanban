@@ -90,6 +90,28 @@ Kanban.Views.CardShow = Backbone.View.extend({
       cssclass : "animated fadeIn"
     });
 
+    that.$(".comment .content").editable(function (value, settings) {
+      var index = $(this).closest('li').index();
+      var comment = comments.at(index);
+      comment.set({ content: value });
+      comment.save();
+      return value;
+    }, {
+      type: "textarea",
+      cancel: 'Cancel',
+      submit: "Save",
+      onblur: "submit",
+      cssclass : "animated fadeIn",
+      rows: 5,
+      loaddata: function (value, settings) {
+        var index = $(this).closest('li').index();
+        var comment = comments.at(index);
+        console.log('xxxxx');
+        console.log(comment.get('content'));
+        return comment.get('content');
+      }
+    });
+
     // decorate comment timestamps
     that.$el.find("abbr.timeago").timeago();
 

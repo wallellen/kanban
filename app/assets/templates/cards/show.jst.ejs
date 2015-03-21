@@ -35,9 +35,7 @@
 
 			<a rel="author"><%= user.get("full_name") %></a>
 
-			<div class="content">
-				<%= comment.escape("content") %>
-			</div>
+			<p class="content"><%= comment.escape("content") %></p>
 
 			<footer>
 				<abbr class="timeago quiet" title="<%= comment.escape("created_at") %>"><%= comment.escape("created_at") %></abbr>
