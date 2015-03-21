@@ -14,6 +14,7 @@ Kanban::Application.routes.draw do
     resources :users, only: [:show] do
       collection do
         get :current
+        post :change_password
       end
     end
 

@@ -26,8 +26,6 @@ Kanban.Views.UsersIndex = Backbone.View.extend({
     var that = this;
     event.preventDefault();
     var $form = $(event.target);
-    var attrs = $form.serializeJSON();
-    attrs['board_id'] = that.board.id;
     var attrs = {
       board_id: that.board.id,
       user_email: $form.find('.user_email').val()

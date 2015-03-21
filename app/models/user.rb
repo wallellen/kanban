@@ -13,6 +13,7 @@
 #  updated_at      :datetime         not null
 #
 require "digest/md5"
+require 'bcrypt'
 
 class User < ActiveRecord::Base
   attr_accessible :username, :email, :full_name, :bio
@@ -49,5 +50,9 @@ class User < ActiveRecord::Base
   def as_json(options = {})
     super(options.merge(only: [:username, :email, :bio],
                         methods: :gravatar_url))
+  end
+
+  def update_password(password)
+    update_attribute(:password_digest, BCrypt::Password.create(password))
   end
 end

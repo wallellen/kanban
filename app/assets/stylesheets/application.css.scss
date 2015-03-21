@@ -189,6 +189,28 @@ section.login {
 	margin: 5px 0 5px 0;
 }
 
+.profile {
+  margin: auto;
+  width: 400px;
+}
+
+.change-password label {
+  display: inline-block;
+  width: 170px;
+  font-size: 14px;
+}
+
+.change-password input[type="password"] {
+  margin: 3px 0;
+  width: 200px;
+}
+
+.change-password .message {
+  display: inline-block;
+  margin: auto;
+  margin-top: 10px;
+}
+
 section.boards-index {
   width: 360px;
   margin: 0 auto;

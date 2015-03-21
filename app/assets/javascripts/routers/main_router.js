@@ -6,7 +6,8 @@ Kanban.Routers.Main = Backbone.Router.extend({
   routes: {
     "": "index",
     "/login": "login",
-    "boards/:id": "show"
+    "boards/:id": "show",
+    "profile": "userProfile"
   },
 
   index: function () {
@@ -28,6 +29,16 @@ Kanban.Routers.Main = Backbone.Router.extend({
     });
 
     that.$rootEl.html(boardShow.render().$el);
+  },
+
+  userProfile: function () {
+    var that = this;
+
+    var profile = new Kanban.Views.UserProfile({
+      
+    });
+    
+    that.$rootEl.html(profile.render().$el);
   }
 
 });
