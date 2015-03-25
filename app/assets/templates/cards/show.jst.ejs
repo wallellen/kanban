@@ -11,7 +11,7 @@
 
 <div class="members">
 	<% if (assignee) { %>
-		<img src="<%= assignee.get("gravatar_url") %>" />
+		<!img src="<%= assignee.get("gravatar_url") %>" /-->
 	<% } %>
 </div>
 
@@ -30,7 +30,7 @@
 	<li>
 		<article class="comment">
 			<header>
-				<img src="<%= user.get("gravatar_url") %>" />
+				<!img src="<%= user.get("gravatar_url") %>" /-->
 			</header>
 
 			<a rel="author"><%= user.get("full_name") %></a>

@@ -6,7 +6,7 @@
 	<% users.each(function (user) { %>
 		<li class="user"
 				data-user-id="<%= user.id %>">
-			<img class="avatar" src="<%= user.escape("gravatar_url") %>" />
+			<!img class="avatar" src="<%= user.escape("gravatar_url") %>" /-->
 			<span><%= user.get('full_name') %></span>
 		</li>
 	<% }); %>

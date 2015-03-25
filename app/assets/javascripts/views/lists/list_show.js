@@ -36,7 +36,15 @@ Kanban.Views.ListShow = Backbone.View.extend({
         });
 
         $cardModal.html(cardShow.render().$el);
-        $cardModal.find("article.card_detail").modal();
+        var $dialog = $cardModal.find("article.card_detail");
+        $dialog.modal();
+        var top = Math.max(0, (($(window).height() - $cardModal.outerHeight()) / 2) + $(window).scrollTop()) - 250;
+        var left = Math.max(0, (($(window).width() - $cardModal.outerWidth()) / 2) + $(window).scrollLeft());
+        $cardModal.css({
+          position: "absolute",
+          left: left + "px",
+          top: top + "px"
+        });
       }
     });
   },

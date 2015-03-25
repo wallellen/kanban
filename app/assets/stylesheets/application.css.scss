@@ -246,12 +246,12 @@ section.boards-index {
 	}
 
 	ul.users {
-		margin: 0;
+		margin: 0 0 10px 0;
 		padding: 0;
 		list-style-type: none;
 
     li.user {
-      display: inline-block;
+      // display: inline-block;
     }
 	}
 
@@ -627,7 +627,9 @@ section.board-show { }
     margin-top: 20px;
   }
 
-  section.card_detail { }
+  section.card_detail { 
+    width: 0px;
+  }
 
 	.card_detail .members {
 //		float: right;

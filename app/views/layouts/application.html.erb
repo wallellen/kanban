@@ -19,7 +19,7 @@
     </div>
     <div class="header-user">
       <% if logged_in? %>
-        <%= link_to image_tag(current_user.gravatar_url(30), class: "avatar"), "#profile" %>
+        <%= link_to current_user.full_name, "#profile" %>
         <p>(<%= link_to "logout", '/logout' %>)</p>
       <% else %>
         <p><%= link_to "login", '/login' %></p>
